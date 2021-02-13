@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merhwehrtsteuer Projekt</title>
+  </head>
+  <body>
+    <form action=""></form>
+<div>
+  <p>Was soll berechnet werden?</p>
+  <input id="nettoZuBrutto" type="radio" name="mehrwehrtsteuer" checked >
+
+  <label for="nettoZuBrutto">Mehrwehrtsteuer aufschlagen (Netto zu Brutto)</label>
+  <br>
+  <input type="radio" name="mehrwehrtsteuer">
+  <label for="bruttoZuNetto">Mehrwehrtsteuer aufschlagen (Brutto zu Netto)</label>
+</div>
+<div>
+  <p>Mehrwehrsteuersatz</p>
+
+  <input id="satz19" type="radio" name="mehrwehrtsteuersatz" checked >
+<label for="satz19">19%</label>
+  <input id="satz19" type="radio" name="mehrwehrtsteuersatz" >
+  <label for="satz7">7%</label>
+</div>
+<div>
+  <p id="betragTxt"></p>
+  <input id="betragInput" type="text">
+</div>
+<input type="button" value="Berechnen" onclick="rechnen()">
+<div>
+  <h3>Ergebnis</h3>
+  <p>Mehrwehrsteuerbetrag</p>
+  <h3 id="mehrwehrtsteuerbetrag" ></h3>
+</div>
+<div>
+  <p id="ergebnis"></p>
+  <h3 id="endPreis"></h3>
+</div>
+</form>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
