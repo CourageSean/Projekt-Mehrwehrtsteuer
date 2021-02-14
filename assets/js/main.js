@@ -100,20 +100,3 @@ function changeTxt() {
     ergebnis.innerHTML = "Nettobetrag ";
   }
 }
-
-var l = event.key;
-if (l == "Enter") {
-  rechnen();
-}
-
-// let q = event.code;
-// if (q == "Enter") {
-//   validate();
-// }
-
-// betragInput.addEventListener("keyup", function (event) {
-//   if (event.keyCode === 13) {
-//     rechnen();
-//     event.preventDefault();
-//   }
-// });

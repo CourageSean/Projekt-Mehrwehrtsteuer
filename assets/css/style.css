@@ -85,6 +85,7 @@ label {
   height: 30px;
   border: none;
   border-bottom: solid 2px #66798d;
+  text-align: center;
 }
 
 #betragInput::-webkit-input-placeholder {
