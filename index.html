@@ -14,7 +14,7 @@
 
   <label for="nettoZuBrutto">Mehrwehrtsteuer aufschlagen (Netto zu Brutto)</label>
   <br>
-  <input type="radio" name="mehrwehrtsteuer">
+  <input id="bruttoZuNetto" type="radio" name="mehrwehrtsteuer">
   <label for="bruttoZuNetto">Mehrwehrtsteuer aufschlagen (Brutto zu Netto)</label>
 </div>
 <div>
@@ -22,14 +22,14 @@
 
   <input id="satz19" type="radio" name="mehrwehrtsteuersatz" checked >
 <label for="satz19">19%</label>
-  <input id="satz19" type="radio" name="mehrwehrtsteuersatz" >
+  <input id="satz7" type="radio" name="mehrwehrtsteuersatz" >
   <label for="satz7">7%</label>
 </div>
 <div>
   <p id="betragTxt"></p>
-  <input id="betragInput" type="text">
+  <input id="betragInput" type="text" maxlength="">
 </div>
-<input type="button" value="Berechnen" onclick="rechnen()">
+<input id="myBt" type="button" value="Berechnen"onclick="rechnen()">
 <div>
   <h3>Ergebnis</h3>
   <p>Mehrwehrsteuerbetrag</p>
