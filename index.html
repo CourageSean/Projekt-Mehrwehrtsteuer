@@ -11,7 +11,7 @@
     <form action="">
       <div id="form-links">
         <div id="was-soll-b">
-          <p>Was soll berechnet werden?</p>
+          <p class="div-header">Was soll berechnet werden?</p>
           <input
             id="nettoZuBrutto"
             type="radio"
@@ -36,17 +36,30 @@
         </div>
 
         <div id="mehrwert-container">
-          <p>Mehrwehrsteuersatz</p>
+          <p class="div-header">Mehrwehrsteuersatz</p>
 
-          <input id="satz19" type="radio" name="mehrwehrtsteuersatz" checked />
-          <label for="satz19">19%</label>
-          <input id="satz7" type="radio" name="mehrwehrtsteuersatz" />
-          <label for="satz7">7%</label>
+          <input id="satz19" type="radio" name="mehrwehrtsteuersatz" />
+          <label id="label-satz19" for="satz19" onclick="checker()">19%</label>
+
+          <div id="switch-container">
+            <label class="switch">
+              <input id="slide" type="checkbox" onclick="innerChecker()" />
+              <span class="slider" onclick="innerChecker()"></span>
+            </label>
+          </div>
+          <input id="satz7" type="radio" name="mehrwehrtsteuersatz" checked />
+          <label id="label-satz7" for="satz7" onclick="checker()">7%</label>
         </div>
 
         <div>
           <p id="betragTxt"></p>
-          <input id="betragInput" type="text" maxlength="" />
+          <input
+            id="betragInput"
+            type="text"
+            placeholder="0,00"
+            onkeypress="rechnen()"
+            maxlength=""
+          />
 
           <input
             id="myBt"
@@ -60,7 +73,7 @@
       <div id="form-rechts">
         <div>
           <h3>Ergebnis</h3>
-          <p>Mehrwehrsteuerbetrag</p>
+          <p class="txt">Mehrwehrsteuerbetrag</p>
           <h3 id="mehrwehrtsteuerbetrag"></h3>
 
           <p id="ergebnis"></p>

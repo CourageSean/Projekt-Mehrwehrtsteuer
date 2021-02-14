@@ -2,6 +2,8 @@ let betragTxt = document.getElementById("betragTxt");
 let ergebnis = document.getElementById("ergebnis");
 let nettoZuBrutto = document.getElementById("nettoZuBrutto");
 let bruttoZuNetto = document.getElementById("bruttoZuNetto");
+let slide = document.getElementById("slide");
+let betragInput = document.getElementById("betragInput");
 
 if (nettoZuBrutto.checked) {
   betragTxt.innerHTML = "Nettobetrag (Preis ohne Mehrwehrtsteuer) in Euro*";
@@ -12,7 +14,27 @@ if (nettoZuBrutto.checked) {
   ergebnis.innerHTML = "Nettobetrag ";
 }
 
-const rechnen = function () {
+function checker() {
+  if (satz19.checked) {
+    (slide.checked = false) && (satz19.checked = true);
+  } else if (satz7.checked) {
+    (slide.checked = true) && (satz7.checked = true);
+  } else if (!slide.checked) {
+    (satz19.checked = true) && (satz7.checked = false);
+  } else if (slide.checked) {
+    (satz7.checked = true) && (satz19.checked = false);
+  }
+}
+
+function innerChecker() {
+  if (slide.checked) {
+    satz19.checked = true;
+  } else if (!slide.chekcked) {
+    satz7.checked = true;
+  }
+}
+
+function rechnen(event) {
   let bruttoZuNetto = document.getElementById("bruttoZuNetto");
   let satz7 = document.getElementById("satz7");
   let satz19 = document.getElementById("satz19");
@@ -40,10 +62,10 @@ const rechnen = function () {
     let gbEndPreis = g + gmwSt;
     gmwSt = gmwSt.toFixed(2);
     gmwSt = gmwSt.replace(".", ",");
-    mehrwehrtSteuerBetrag.innerHTML = gmwSt;
+    mehrwehrtSteuerBetrag.innerHTML = gmwSt + "€";
     gbEndPreis = gbEndPreis.toFixed(2);
     gbEndPreis = gbEndPreis.replace(".", ",");
-    endPreis.innerHTML = gbEndPreis;
+    endPreis.innerHTML = gbEndPreis + "€";
   };
 
   const innerRechner2 = function (x) {
@@ -51,13 +73,11 @@ const rechnen = function () {
     let gmwSt = g - gbEndPreis;
     gmwSt = gmwSt.toFixed(2);
     gmwSt = gmwSt.replace(".", ",");
-    mehrwehrtSteuerBetrag.innerHTML = gmwSt;
+    mehrwehrtSteuerBetrag.innerHTML = gmwSt + "€";
     gbEndPreis = gbEndPreis.toFixed(2);
     gbEndPreis = gbEndPreis.replace(".", ",");
-    endPreis.innerHTML = gbEndPreis;
+    endPreis.innerHTML = gbEndPreis + "€";
   };
-
-  //Je nachdem was gechecked ist, was dann widerum angezeigt wird
 
   if (nettoZuBrutto.checked && satz19.checked) {
     innerRechner(0.19);
@@ -68,19 +88,7 @@ const rechnen = function () {
   } else if (bruttoZuNetto.checked && satz7.checked) {
     innerRechner2(1.07);
   }
-
-  g = g.toFixed(2);
-
-  /* Ab hier füge ich wieder komma hinzu und replace das letzte "." mit "," um es als string 
-  auszugeben*/
-  g = g.replace(".", ",");
-
-  let h = g.slice(0, -6);
-  let i = g.slice(-6);
-
-  g = h + "." + i;
-  console.log(g);
-};
+}
 
 function changeTxt() {
   if (nettoZuBrutto.checked) {
@@ -93,9 +101,19 @@ function changeTxt() {
   }
 }
 
-betragInput.addEventListener("keyup", function (event) {
-  if (event.keyCode === 13) {
-    rechnen();
-    event.preventDefault();
-  }
-});
+var l = event.key;
+if (l == "Enter") {
+  rechnen();
+}
+
+// let q = event.code;
+// if (q == "Enter") {
+//   validate();
+// }
+
+// betragInput.addEventListener("keyup", function (event) {
+//   if (event.keyCode === 13) {
+//     rechnen();
+//     event.preventDefault();
+//   }
+// });
