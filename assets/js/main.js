@@ -1,16 +1,29 @@
-// funktion und variablen definieren
+let betragTxt = document.getElementById("betragTxt");
+let ergebnis = document.getElementById("ergebnis");
+let nettoZuBrutto = document.getElementById("nettoZuBrutto");
+let bruttoZuNetto = document.getElementById("bruttoZuNetto");
+
+if (nettoZuBrutto.checked) {
+  betragTxt.innerHTML = "Nettobetrag (Preis ohne Mehrwehrtsteuer) in Euro*";
+  ergebnis.innerHTML = "Bruttobetrag (Endpreis)";
+} else if (BruttoZuNetto.checked) {
+  betragTxt.innerHTML =
+    "Bruttobetrag (Preis inklusive Mehrwehrtsteuer) in Euro*";
+  ergebnis.innerHTML = "Nettobetrag ";
+}
+
 const rechnen = function () {
-  let nettoZuBrutto = document.getElementById("nettoZuBrutto");
   let bruttoZuNetto = document.getElementById("bruttoZuNetto");
   let satz7 = document.getElementById("satz7");
   let satz19 = document.getElementById("satz19");
+
   let betragInput = document.getElementById("betragInput");
-  let ergebnis = document.getElementById("ergebnis");
+
   let endPreis = document.getElementById("endPreis");
   let mehrwehrtSteuerBetrag = document.getElementById("mehrwehrtsteuerbetrag");
 
   /*Ab hier modifiziere ich den eingegebenen Wert so dass wenn zb. 200.500,55 als Betrag 
-  eingegeben wurde das komma "," mit "." ausgetauscht wird und das erste "." entfernt wird,
+  eingegeben wird das komma "," mit "." ausgetauscht wird und das erste "." entfernt wird,
   damit ich mit dem input rechnen kann */
 
   let a = betragInput.value;
@@ -44,6 +57,8 @@ const rechnen = function () {
     endPreis.innerHTML = gbEndPreis;
   };
 
+  //Je nachdem was gechecked ist, was dann widerum angezeigt wird
+
   if (nettoZuBrutto.checked && satz19.checked) {
     innerRechner(0.19);
   } else if (nettoZuBrutto.checked && satz7.checked) {
@@ -65,10 +80,18 @@ const rechnen = function () {
 
   g = h + "." + i;
   console.log(g);
-
-  //   let betragInputReplace = betragInput.value.replace(",", ".");
-  //  console.log(betragInputReplace);
 };
+
+function changeTxt() {
+  if (nettoZuBrutto.checked) {
+    betragTxt.innerHTML = "Nettobetrag (Preis ohne Mehrwehrtsteuer) in Euro*";
+    ergebnis.innerHTML = "Bruttobetrag (Endpreis)";
+  } else if (bruttoZuNetto.checked) {
+    betragTxt.innerHTML =
+      "Bruttobetrag (Preis inklusive Mehrwehrtsteuer) in Euro*";
+    ergebnis.innerHTML = "Nettobetrag ";
+  }
+}
 
 betragInput.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {

@@ -10,11 +10,11 @@
     <form action=""></form>
 <div>
   <p>Was soll berechnet werden?</p>
-  <input id="nettoZuBrutto" type="radio" name="mehrwehrtsteuer" checked >
+  <input id="nettoZuBrutto" type="radio" name="mehrwehrtsteuer" checked onchange="changeTxt()" >
 
   <label for="nettoZuBrutto">Mehrwehrtsteuer aufschlagen (Netto zu Brutto)</label>
   <br>
-  <input id="bruttoZuNetto" type="radio" name="mehrwehrtsteuer">
+  <input id="bruttoZuNetto" type="radio" name="mehrwehrtsteuer"  onchange="changeTxt()">
   <label for="bruttoZuNetto">Mehrwehrtsteuer aufschlagen (Brutto zu Netto)</label>
 </div>
 <div>
