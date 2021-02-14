@@ -1,0 +1,27 @@
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+form {
+  display: flex;
+  background: #eef4fa;
+  padding: 50px;
+  justify-content: space-between;
+  width: 60%;
+}
+
+#was-soll-b {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  margin: 5px;
+}
+
+#mehrwert-container {
+  background: #fff;
+  padding: 2px 10px 10px 10px;
+  border-radius: 20px;
+  margin: 5px;
+}
